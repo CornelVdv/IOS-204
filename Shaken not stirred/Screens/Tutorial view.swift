@@ -9,20 +9,26 @@ import SwiftUI
 
 struct Tutorial_view: View {
     @AppStorage("TutorialComplete") var TutorialComplete = false
+    @State private var skip = false
     var body: some View {
-        VStack(){
-            TabView{
-                Tutorial1()
-                Tutorial2()
-                Tutorial3()
+        if skip{
+            ContentView()
+        } else{
+            VStack(){
+                TabView{
+                    Tutorial1()
+                    Tutorial2()
+                    Tutorial3()
             }
-            .tabViewStyle(.page)
-            Spacer()
-            Button(action:{
-                TutorialComplete = true
-            }){Text("Skip")}
+                .tabViewStyle(.page)
+                Spacer()
+                Button(action:{
+                    TutorialComplete = true
+                    skip = true
+                }){Text("Skip")}
+            }.accentColor(Color(UIColor(named: "AccentColor")!))
         }
-    }
+        }
 }
 
 struct Totorial_view_Previews: PreviewProvider {

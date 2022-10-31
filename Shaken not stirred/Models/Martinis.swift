@@ -19,6 +19,5 @@ struct City: Identifiable {
     var image: String
     var index: String
     var recipe: String
-    
-    
+    var ing: String
 }

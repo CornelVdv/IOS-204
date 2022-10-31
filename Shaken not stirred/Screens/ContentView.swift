@@ -8,39 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        ZStack {
-            LinearGradient(colors: [.white, .LightGreen], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
-            VStack() {
-               //padding
-            VStack {
-                padding(.bottom, 20)
-                Text("Shaken")
-                    .font(.largeTitle)
-                    .foregroundColor(.green)
-                Image("Logo")
-                    .resizable()
-                    .scaledToFit()
-                Text("not stirred")
-                    .foregroundColor(.green)
-                
-            
-            }
-            VStack {
-                HStack {
-                    Image("James qoute")
-                        .resizable()
-                        .scaledToFit()
-                }
-            }
-                Spacer()
-                .background(Color.SplashScreen)        }
-        }
-        }
-        
+    let appearance: UITabBarAppearance = UITabBarAppearance()
+    init(){
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+        UITabBar.appearance().barTintColor = UIColor.blue
     }
-
+    var body: some View {
+        TabView {
+                Home_Page()
+                    .tabItem {
+                        Image("home")
+                    }
+               Explore2()
+                    .tabItem {
+                        Image("explore")
+                    }
+                Active()
+                    .tabItem {
+                        Image("favourite")
+                }
+                Settings()
+                    .tabItem {
+                        Image("settings")
+            }
+        }
+       
+        }
+    }
+//extension UITabBarController{
+//    override open func viewDidLoad() {
+//        let standardAppearance = UITabBarAppearance()
+//
+//        standardAppearance.backgroundColor = .red
+//
+//        tabBar.standardAppearance = standardAppearance
+//    }
+//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

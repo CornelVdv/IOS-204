@@ -8,35 +8,46 @@
 import SwiftUI
 
 struct Tutorial1: View {
+    @AppStorage("TutorialComplete") var TutorialComplete = false
     var body: some View {
-        ZStack{
-            //Color(.BackGround)
-             //   .edgesIgnoringSafeArea(.all)
-            
+          ZStack{
             VStack{
                 HStack{
                     Text("Shaken")
-                        .font(.system(size: 25))
-                        .foregroundColor(.DarkGreen)
+                        .font(.system(size: 30))
+                        .foregroundColor(Color(UIColor(named: "AccentColor")!))
                     Text(" not")
-                        .font(.system(size: 20))
-                        .foregroundColor(.DarkGreen)
+                        .font(.system(size: 25))
+                        .foregroundColor(Color(UIColor(named: "AccentColor")!))
                     Text(" Stirred")
-                        .font(.system(size: 25))}
-                        .foregroundColor(.DarkGreen)
-                
+                        .font(.system(size: 30))
+                        .foregroundColor(Color(UIColor(named: "AccentColor")!))
+                }
+                    .padding(.top, 45)
                 VStack{
                     Text("Explore")
-                    Image("Logo")
+                        .font(.system(size: 35))
+                        .padding()
+                        .padding(.top,50)
+                    Image("More")
+                        .resizable()
+                        .frame(width: 200.0, height: 200.0)
+                        .padding(.bottom, 40)
                     Text("Fond what you are looking for or something new! There is a very wide selection of martinis even for our martini veterans and lovers. Whoe knows, maybe you will find your new favourite?")
+                        .multilineTextAlignment(.center)
+                        .padding(.leading, 30)
+                        .padding(.trailing, 30)
                 }
                 
                 Spacer()
             }
+            .background(Color(UIColor(named: "LightGreen")!))
+            .padding(20)
         }
-            //Color(Color.BackGround)
-            //.edgesIgnoringSafeArea(.all)
+        .background(Color(UIColor(named: "LightGreen")!))
+            .edgesIgnoringSafeArea(.all)
         
+    
     }
 }
 
